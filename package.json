@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beto1030/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beto1030/portfolio/issues"
+  },
+  "homepage": "https://github.com/beto1030/portfolio#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "js-beautify": "^1.13.0",
+    "moment": "^2.29.1",
+    "normalize.css": "^8.0.1"
+  }
+}
