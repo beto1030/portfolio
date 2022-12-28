@@ -19,66 +19,81 @@
 
         <div class="categories">
             <ul>
-                <li><a href="#">All</a></li>
-                <li><a href="#">react components</a></li>
-                <li><a href="#">vim</a></li>
-                <li><a href="#">webscrape</a></li>
+                <li><a href="#" class="btn" onclick="filterSelection('all')">all</a></li>
+                <li><a href="#" class="btn" onclick="filterSelection('react')">react</a></li>
+                <li><a href="#" class="btn" onclick="filterSelection('vim')">vim</a></li>
+                <li><a href="#" class="btn" onclick="filterSelection('webscrape')">webscrape</a></li>
             </ul>
         </div>
 
         <main>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card react">
+                <div class="header">react hooks</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card react">
+                <div class="header">nav component</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card react">
+                <div class="header">footer component</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card vim">
+                <div class="header">vimrc</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card vim">
+                <div class="header">vim plugins</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card webscrape">
+                <div class="header">python webscrape</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card webscrape">
+                <div class="header">javascript webscrape</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+            <div class="card webscrape">
+                <div class="header">webscraping best practices</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+
+            <div class="card react">
+                <div class="header">bio component</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+
+            <div class="card react">
+                <div class="header">categories component</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
-            <div class="card">
-                <div class="header">title</div>
+
+            <div class="card react">
+                <div class="header">card component</div>
+                <div class="description">description of post</div>
+                <div class="date">12/28/22</div>
+            </div>
+
+            <div class="card react">
+                <div class="header">carousel component</div>
+                <div class="description">description of post</div>
+                <div class="date">12/28/22</div>
+            </div>
+
+            <div class="card react">
+                <div class="header">comments sections component</div>
                 <div class="description">description of post</div>
                 <div class="date">12/28/22</div>
             </div>
@@ -87,5 +102,51 @@
         <footer>
         </footer>
     </div>
+
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("card");
+          if (c == "all") c = "";
+          for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          }
+        }
+        
+        function w3AddClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+          }
+        }
+        
+        function w3RemoveClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+          }
+          element.className = arr1.join(" ");
+        }
+        
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+    </script>
+
 </body>
 </html>
